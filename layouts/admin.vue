@@ -26,6 +26,9 @@
                 <li class="nav-item">
                   <NuxtLink class="nav-link" :class="{ active: $route.path === '/admin/sobre' }" to="/admin/sobre">Sobre</NuxtLink>
                 </li>
+                <li class="nav-item">
+                  <NuxtLink class="nav-link" :class="{ active: $route.path === '/admin/perfil' }" to="/admin/perfil">Perfil</NuxtLink>
+                </li>
               </ul>
               <div class="d-flex">
                 <button class="btn btn-outline-danger" @click="logout">Sair</button>

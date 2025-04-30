@@ -13,6 +13,13 @@ export const useAuth = () => {
     return null
   }
 
+  const getUsuario = () => {
+    if (process.client) {
+      return JSON.parse(localStorage.getItem('usuario') || '{}')
+    }
+    return null
+  }
+
   const logout = () => {
     if (process.client) {
       localStorage.removeItem('token')
@@ -20,9 +27,20 @@ export const useAuth = () => {
     }
   }
 
+  const getAuthHeaders = () => {
+    const token = getToken()
+    return {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }
+  }
+
   return {
     isAuthenticated,
     getToken,
-    logout
+    getUsuario,
+    logout,
+    getAuthHeaders
   }
 } 

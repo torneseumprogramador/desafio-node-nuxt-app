@@ -80,6 +80,7 @@
 
       if (data.value) {
         localStorage.setItem('token', data.value.token)
+        localStorage.setItem('usuario', JSON.stringify(data.value.usuario))
         navigateTo('/admin')
       }
     } catch (err) {
