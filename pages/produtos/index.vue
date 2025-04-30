@@ -11,6 +11,7 @@
             <th>Descrição</th>
             <th>Preço</th>
             <th>Categoria</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +26,13 @@
               <span :class="produto.categoria.cor" class="badge">
                 {{ produto.categoria.nome }}
               </span>
+            </td>
+            <td>
+              <NuxtLink 
+                :to="`/produtos/${produto.id}`" 
+                class="btn btn-primary btn-sm">
+                Visualizar
+              </NuxtLink>
             </td>
           </tr>
         </tbody>
