@@ -1,11 +1,14 @@
 <script setup>
   import { Head } from '#components'
+  import { useAuth } from '~/composables/useAuth'
+
+  const { logout } = useAuth()
 </script>
 
 <template>
     <div>
       <Head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
       </Head>
       
       <header data-bs-theme="dark">
@@ -24,10 +27,9 @@
                   <NuxtLink class="nav-link" :class="{ active: $route.path === '/admin/sobre' }" to="/admin/sobre">Sobre</NuxtLink>
                 </li>
               </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              <div class="d-flex">
+                <button class="btn btn-outline-danger" @click="logout">Sair</button>
+              </div>
             </div>
           </div>
         </nav>
@@ -45,5 +47,4 @@
     body {
         background-color: #f8f9fa;
     }
-</style>
-  
+</style>  
